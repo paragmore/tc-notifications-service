@@ -3,13 +3,14 @@ import { FastifyInstance } from "fastify";
 import { NotificationController } from "../controllers/notification.controller";
 import container from "../inversify.config";
 import { ApiHelper } from "../utils/ApiHelper";
+import { CreateNotificationI } from "../types/types";
 
 export default async (app: FastifyInstance) => {
   const notificationController = container.resolve<NotificationController>(NotificationController)
 
-  ApiHelper.get<{}, {}, {}>(
+  ApiHelper.post<CreateNotificationI, {}, {},{}>(
     app,
-    "/",
-    notificationController.notificationController.bind(notificationController)
+    "/create",
+    notificationController.createNotification.bind(notificationController)
   );
 };
