@@ -10,6 +10,8 @@ const NotificationSchema = new mongoose.Schema(
       required: true,
     },
     imageUrl: { type: String },
+    activeDuration: { type: Number },
+    appUrl: { type: String },
   },
   { timestamps: true }
 );
