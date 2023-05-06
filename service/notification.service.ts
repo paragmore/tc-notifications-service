@@ -19,4 +19,9 @@ export class NotificationService {
     );
     return response
   }
+
+  async deleteNotification(notificationId: string){
+    const response = await this.notificationRepo.softDeleteNotification(notificationId)
+    return response
+  }
 }

@@ -12,6 +12,7 @@ const NotificationSchema = new mongoose.Schema(
     imageUrl: { type: String },
     activeDuration: { type: Number },
     appUrl: { type: String },
+    isDeleted: { type: Boolean },
   },
   { timestamps: true }
 );

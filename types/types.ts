@@ -18,3 +18,7 @@ export interface CreateNotificationI {
   segmentId: string;
   imageUrl?: string;
 }
+
+export interface DeleteNotificationI{
+  notificationId: string;
+}

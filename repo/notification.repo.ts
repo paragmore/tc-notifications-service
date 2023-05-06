@@ -31,4 +31,23 @@ export class NotificationRepo {
       );
     }
   }
+
+  async softDeleteNotification(notificationId: string) {
+    try {
+      const deletedDocument = await NotificationModel.findByIdAndUpdate(
+        notificationId,
+        { isDeleted: true }
+      );
+      return deletedDocument
+    } catch (error) {
+      console.log(
+        "Caught error in NotificationRepo: softDeleteNotification =>",
+        error
+      );
+      return new ApiError(
+        "Caught error in NotificationRepo: softDeleteNotification =>",
+        500
+      );
+    }
+  }
 }
